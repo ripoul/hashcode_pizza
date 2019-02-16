@@ -6,14 +6,14 @@ console.log(fileName)
 
 function createMatrixBool() {
     param = getParam(fileName)
-    let x = param.x;
-    let y = param.y;
+    let r = param.r;
+    let c = param.c;
     let matrix = [];
     let line = [];
-    for (let index = 0; index < y; index++) {
+    for (let index = 0; index < c; index++) {
         line.push(true);
     }
-    for (let index = 0; index < x; index++) {
+    for (let index = 0; index < r; index++) {
         matrix.push(line);
         
     }
@@ -24,8 +24,8 @@ function getParam(){
     let contenu = fs.readFileSync(fileName,'utf8');
     firstline = contenu.split("\n")[0].split(" ");
     return {
-        x:firstline[0],
-        y:firstline[1],
+        r:firstline[0],
+        c:firstline[1],
         nbIngredient:firstline[2],
         sizeMax:firstline[3]
     }
