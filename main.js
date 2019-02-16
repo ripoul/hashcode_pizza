@@ -1,11 +1,13 @@
 const fs = require('fs');
 const Coordinate = require('./Coordinate');
 
-function createMatrixBool(file) {
-    let contenu = fs.readFileSync(file,'utf8');
-    let firstLine = contenu.split("\n")[0].split(" ");
-    let x = firstLine[0];
-    let y = firstLine[1];
+const fileName = process.argv.slice(2)[0]
+console.log(fileName)
+
+function createMatrixBool() {
+    param = getParam(fileName)
+    let x = param.x;
+    let y = param.y;
     let matrix = [];
     let line = [];
     for (let index = 0; index < y; index++) {
@@ -18,7 +20,19 @@ function createMatrixBool(file) {
     return matrix;
 }
 
-function checkSliceBoundaries(coordinate){
+function getParam(){
+    let contenu = fs.readFileSync(fileName,'utf8');
+    firstline = contenu.split("\n")[0].split(" ");
+    return {
+        x:firstline[0],
+        y:firstline[1],
+        nbIngredient:firstline[2],
+        sizeMax:firstline[3]
+    }
 }
 
-console.log(createMatrixBool("data/a_example.in"))
+function checkSliceBoundaries(coordinate){
+    
+}
+
+console.log(createMatrixBool())
