@@ -1,0 +1,23 @@
+{
+  "name": "hashcode_pizza",
+  "version": "1.0.0",
+  "description": "hashcode training 2019",
+  "main": "main.js",
+  "dependencies": {
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ripoul/hashcode_pizza.git"
+  },
+  "author": "@ripoul",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ripoul/hashcode_pizza/issues"
+  },
+  "homepage": "https://github.com/ripoul/hashcode_pizza#readme"
+}
