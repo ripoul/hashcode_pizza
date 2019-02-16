@@ -52,18 +52,21 @@ function checkSliceBoundaries(coordinate){
 function findGreaterSlices(starting_point, max_cells) {
   let slices = [];
   if (max_cells % 2) {
-    slices = findGreaterSlices(max_cells - 1);
+    slices = findGreaterSlices(starting_point, max_cells - 1);
   }
   const denominators = getAllDenominator(max_cells);
   denominators.forEach(
-      number => {
-
-      });
+    number => {
+      const c1 = starting_point;
+      const c2 = new Coordinate(starting_point.col + max_cells / number, starting_point.row + number);
+      slices.push(new Slice(c1, c2));
+    });
+  return slices;
 }
 
 function getAllDenominator(number) {
   const denominators = [];
-  for (let i = n; i > 0; i--) {
+  for (let i = number; i > 0; i--) {
     if (!(number % i)) {
       denominators.push(i);
     }
