@@ -5,46 +5,68 @@ const fileName = process.argv.slice(2)[0]
 console.log(fileName)
 
 function createMatrixBool() {
-    param = getParam(fileName)
-    let r = param.r;
-    let c = param.c;
-    let matrix = [];
-    let line = [];
-    for (let index = 0; index < c; index++) {
-        line.push(true);
-    }
-    for (let index = 0; index < r; index++) {
-        matrix.push(line);
-    }
-    return matrix;
+  param = getParam(fileName)
+  let r = param.r;
+  let c = param.c;
+  let matrix = [];
+  let line = [];
+  for (let index = 0; index < c; index++) {
+    line.push(true);
+  }
+  for (let index = 0; index < r; index++) {
+    matrix.push(line);
+  }
+  return matrix;
 }
 
-function getParam(){
-    let contenu = fs.readFileSync(fileName,'utf8');
-    firstline = contenu.split("\n")[0].split(" ");
-    return {
-        r:firstline[0],
-        c:firstline[1],
-        nbIngredient:firstline[2],
-        sizeMax:firstline[3]
+function getParam() {
+  let contenu = fs.readFileSync(fileName, 'utf8');
+  firstline = contenu.split('\n')[0].split(' ');
+  return {
+    r: firstline[0], c: firstline[1], nbIngredient: firstline[2],
+        sizeMax: firstline[3]
+  }
+}
+
+function checkSliceBoundaries(coordinate) {}
+
+function getStartCoord() {
+  point = new Coordinate(0, 0);
+  while (point.isTaken()) {
+    if (point.getCol() != point.getMaxCol()) {
+      point.setCol(point.getCol() + 1);
+    } else {
+      point.setRow(point.getRow() + 1)
+      point.setCol(0);
     }
+  }
+  return point;
+}
+console.log(createMatrixBool('data/a_example.in'))
+
+
+function findGreaterSlices(starting_point, max_cells) {
+  let slices = [];
+  if (max_cells % 2) {
+    slices = findGreaterSlices(max_cells - 1);
+  }
+  const denominators = getAllDenominator(max_cells);
+  denominators.forEach(
+      number => {
+
+      });
 }
 
-function checkSliceBoundaries(coordinate){
-    
+function getAllDenominator(number) {
+  const denominators = [];
+  for (let i = n; i > 0; i--) {
+    if (!(number % i)) {
+      denominators.push(i);
+    }
+  }
+  return denominators;
 }
 
-function getStartCoord(){
-	
-	point= new Coordinate(0, 0);
-	while(point.isTaken()) {
-		if(point.getCol()!=point.getMaxCol()){
-			point.setCol(point.getCol()+1);
-		} else {
-			point.setRow(point.getRow()+1)
-			point.setCol(0);
-		}
-	}
-	return point;
+function main(args) {
+  console.log(createMatrixBool('data/a_example.in'));
 }
-console.log(createMatrixBool("data/a_example.in"))

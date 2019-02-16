@@ -4,3 +4,4 @@ class Coordinate{
         this.row=row;
     }
 }
+module.exports = Coordinate;
