@@ -21,4 +21,4 @@ function createMatrixBool(file) {
 function checkSliceBoundaries(coordinate){
 }
 
-console.log(createMatrix("data/a_example.in"))
+console.log(createMatrixBool("data/a_example.in"))
