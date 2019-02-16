@@ -1,4 +1,5 @@
 const fs = require('fs');
+const Coordinate = require('./Coordinate');
 
 function createMatrix(file) {
     let contenu = fs.readFileSync(file,'utf8');
@@ -15,6 +16,10 @@ function createMatrix(file) {
         
     }
     return matrix;
+}
+
+function validation(coordinate){
+
 }
 
 console.log(createMatrix("data/a_example.in"))
