@@ -1,7 +1,7 @@
 const fs = require('fs');
 const Coordinate = require('./Coordinate');
 
-function createMatrix(file) {
+function createMatrixBool(file) {
     let contenu = fs.readFileSync(file,'utf8');
     let firstLine = contenu.split("\n")[0].split(" ");
     let x = firstLine[0];
@@ -18,8 +18,7 @@ function createMatrix(file) {
     return matrix;
 }
 
-function validation(coordinate){
-
+function checkSliceBoundaries(coordinate){
 }
 
 console.log(createMatrix("data/a_example.in"))
